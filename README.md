@@ -9,5 +9,5 @@ Recommendation engines work on two levels. The first level is on the personal le
 
 The goal for this project is to build a system that allows you to identify and then recommend, recipes you're likely to enjoy.
 
-Updates Coming Soon....Project underway
+Updates Coming Soon....Project underway// Be in touch
 
