@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SS | Details</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
+		<link rel="icon" type="image/png" href="{{ url_for('static',filename='ss.png') }}">
+		<style>
+			.topnav {
+			    background-color: #EBCDFF;
+			    overflow: hidden;
+			    position: fixed;
+			    width:100%;
+			}
+
+			/* Style the links inside the navigation bar */
+			.topnav a {
+			    float: right;
+			    display: block;
+			    color: black;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			    font-size: 17px;
+			}
+
+			/* Change the color of links on hover */
+			.topnav a:hover {
+			    background-color: #ddd;
+			    color: black;
+			}
+
+			/* Add a color to the active/current link */
+			.topnav a.active {
+			    background-color: #4CAF50;
+			    color: white;
+			}
+			.rect {
+			    background-color: #4CAF50; /* Green */
+			    border: none;
+			    color: white;
+			    padding: 15px 32px;
+			    text-align: center;
+			    text-decoration: none;
+			    display: inline-block;
+			    font-size: 16px;
+			    margin: 4px 2px;
+			    cursor: pointer;
+			}
+		</style>
+		</head>
+	<body>
+		<div class="topnav" id="myTopnav">
+		  <img src="{{ url_for('static',filename='ss.png') }}" alt='logo' style='float:left;height: 65px;margin-left: 30px'>
+		  <a href="/logout">Log Out</a>
+		  <a href="/recommend">Recommend</a>
+		  <a href="/detail">Details</a>
+		</div>
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner split">
+					<section>
+						<h2>Multi Algorithm Recommender</a></h2><hr>
+						<h2 id='algo'></h3>
+						<h2 style="font-size: 30px">Day: <span id='day'></span> <br> Habit: <span id='habit' style="font-size: 20px; color: red"></span></h2>
+						<h2 style="font-size: 30px">Snack: <span id='snack' style="font-size: 20px; color: green"></span></h4>
+						<p>Protein: <span id='protein'></span></p>
+					    <p>Fat: <span id='fat'></span></p>
+					    <p>Calories: <span id='calories'></span></p>
+					    <p>Sodium: <span id='sodium'></span></p>
+					</section>
+					<section>
+						<p>Here You can find SVM | RandomForest | Decision Tree | Neural Network</p>
+						<button id='svm' class="rect">SVM</button><br>
+						<button id='rf' class="rect">Random Forest</button><br>
+						<button id='dt' class="rect">Decision Tree</button><br>
+						<button id='nn' class="rect">Neural Network</button><br><br>
+
+						<ul class="actions">
+							<li><a href="/" class="button special">Back to Home</a></li>
+						</ul>
+						<p id="viewer"></p>
+					</section>
+				</div>
+			</section>
+
+		
+	
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					&copy; Rishab Sharma. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/skel.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='js/util.js') }}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+			<script type="text/javascript">
+				$('#svm').click(
+					function(){
+						$.ajax({
+							method:"POST",
+							url: 'http://0.0.0.0:5000/load_model',
+							xhrFields:{
+								withCredentials: true
+							},
+							data: JSON.stringify(
+							{
+								'algo':'SVM'
+							}),
+							contentType: "application/json"
+						}).done(function(res){
+							day = res['day'];
+							snack = res['snack'];
+							protein = res['protein'];
+							fat = res['fat'];
+							calories = res['calories'];
+							sodium = res['sodium'];
+							habit = res['habit']
+							$('#habit').html(habit);
+							$('#algo').html("SVM");
+							$('#snack').html(snack);
+							$('#day').html(day);
+							$('#protein').html(protein);
+							$('#fat').html(fat);
+							$('#calories').html(calories);
+							$('#sodium').html(sodium);
+						}).fail(function(xhr){
+							console.log('Failure');
+							alert("Request Failed  , Sorry We are Fixing it !");
+						})
+					});
+				$('#rf').click(
+					function(){
+						$.ajax({
+							method:"POST",
+							url: 'http://0.0.0.0:5000/load_model',
+							xhrFields:{
+								withCredentials: true
+							},
+							data: JSON.stringify(
+							{
+								'algo':'RF'
+							}),
+							contentType: "application/json"
+						}).done(function(res){
+							day = res['day'];
+							snack = res['snack'];
+							protein = res['protein'];
+							fat = res['fat'];
+							calories = res['calories'];
+							sodium = res['sodium'];
+							habit = res['habit']
+							$('#habit').html(habit);
+							$('#algo').html("Random Forest");
+							$('#snack').html(snack);
+							$('#day').html(day);
+							$('#protein').html(protein);
+							$('#fat').html(fat);
+							$('#calories').html(calories);
+							$('#sodium').html(sodium);
+						}).fail(function(xhr){
+							console.log('Failure');
+							alert("Request Failed  , Sorry We are Fixing it !");
+						})
+					});
+				$('#dt').click(
+					function(){
+						$.ajax({
+							method:"POST",
+							url: 'http://0.0.0.0:5000/load_model',
+							xhrFields:{
+								withCredentials: true
+							},
+							data: JSON.stringify(
+							{
+								'algo':'DT'
+							}),
+							contentType: "application/json"
+						}).done(function(res){
+							day = res['day'];
+							snack = res['snack'];
+							protein = res['protein'];
+							fat = res['fat'];
+							calories = res['calories'];
+							sodium = res['sodium'];
+							habit = res['habit']
+							$('#habit').html(habit);
+							$('#algo').html("Decision Tree");
+							$('#snack').html(snack);
+							$('#day').html(day);
+							$('#protein').html(protein);
+							$('#fat').html(fat);
+							$('#calories').html(calories);
+							$('#sodium').html(sodium);
+						}).fail(function(xhr){
+							console.log('Failure');
+							alert("Request Failed  , Sorry We are Fixing it !");
+						})
+					});
+				$('#nn').click(
+					function(){
+						$.ajax({
+							method:"POST",
+							url: 'http://0.0.0.0:5000/load_model',
+							xhrFields:{
+								withCredentials: true
+							},
+							data: JSON.stringify(
+							{
+								'algo':'NN'
+							}),
+							contentType: "application/json"
+						}).done(function(res){
+							day = res['day'];
+							snack = res['snack'];
+							protein = res['protein'];
+							fat = res['fat'];
+							calories = res['calories'];
+							sodium = res['sodium'];
+							habit = res['habit']
+							$('#habit').html(habit);
+							$('#algo').html("Neural Network");
+							$('#snack').html(snack);
+							$('#day').html(day);
+							$('#protein').html(protein);
+							$('#fat').html(fat);
+							$('#calories').html(calories);
+							$('#sodium').html(sodium);
+						}).fail(function(xhr){
+							console.log('Failure');
+							alert("Request Failed  , Sorry We are Fixing it !");
+						})
+					});
+			</script>
+
+	</body>
+</html>
+
+
+
+

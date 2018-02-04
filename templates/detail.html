@@ -42,52 +42,52 @@
 		<div class="topnav" id="myTopnav">
 		  <img src="{{ url_for('static',filename='ss.png') }}" alt='logo' style='float:left;height: 65px;margin-left: 30px'>
 		  <a href="/logout">Log Out</a>
-		  <a href="#news">Recommend</a>
-		  <a href="#contact">Details</a>
+		  <a href="/recommend">Recommend</a>
+		  <a href="/detail">Details</a>
 		</div>
 		<!-- Banner -->
 			<section id="banner">
 				<div class="inner split">
 					<section>
 						<h2>Enter you weekly snack details</a></h2><hr>
-					    <form action="#" class="alt" method="POST">
+					    <form onsubmit="return false;">
 							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="monday" placeholder="Monaday" type="text">
+									<input id="monday" placeholder="Monaday" type="text">
 								</div>
  							</div>
  							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="tuesday" placeholder="Tuesday" type="text">
+									<input id="tuesday" placeholder="Tuesday" type="text">
 								</div>
  							</div>
  							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="wednesday" placeholder="Wednesday" type="text">
+									<input id="wednesday" placeholder="Wednesday" type="text">
 								</div>
  							</div>
  							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="thursday" placeholder="Thursday" type="text">
+									<input id="thursday" placeholder="Thursday" type="text">
 								</div>
  							</div>
  							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="friday" placeholder="Friday" type="text">
+									<input id="friday" placeholder="Friday" type="text">
 								</div>
  							</div>
  							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="saturday" placeholder="Saturday" type="text">
+									<input id="saturday" placeholder="Saturday" type="text">
 								</div>
  							</div>
  							<div class="row uniform">
 								<div class="6u 12u$(xsmall)">
-									<input name="sunday" placeholder="Sunday" type="text">
+									<input id="sunday" placeholder="Sunday" type="text">
 								</div>
  							</div>
  							<ul class="actions">
- 								<li><input class="button special" value="Submit" type="submit"></li>
+ 								<li><button class="button special" id='btn'>Submit</button></li>
  							</ul>
  						</form>
 					</section>
@@ -96,6 +96,7 @@
 						<ul class="actions">
 							<li><a href="/" class="button special">Back to Home</a></li>
 						</ul>
+						<p id="viewer"></p>
 					</section>
 				</div>
 			</section>
@@ -115,6 +116,64 @@
 			<script src="{{ url_for('static',filename='js/util.js') }}"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+			<script type="text/javascript">
+				$('#btn').click(
+					function(){
+
+					var monday = $('#monday').val();
+					var tuesday = $('#tuesday').val();
+					var wednesday = $('#wednesday').val();
+					var thursday = $('#thursday').val();
+					var friday = $('#friday').val();
+					var saturday = $('#saturday').val();
+					var sunday = $('#sunday').val();
+
+						$.ajax({
+      					    method: "POST",
+							url : "http://0.0.0.0:5000/habits",
+							xhrFields: {
+								withredentials: true
+							},
+							data: JSON.stringify(
+							{
+								"type":"POST",
+								"monday": monday,
+								"tuesday": tuesday,
+								"wednesday": wednesday,
+								"thursday": thursday,
+								"friday": friday,
+								"saturday": saturday,
+								"sunday": sunday,
+							}),
+							contentType:"application/json"
+						}).done(function(){
+							alert('Details Submitted');
+							$('#viewer').html(monday + "<br>" + tuesday + "<br>" + wednesday + "<br>" + thursday + "<br>" + friday + "<br>" + saturday + "<br>" + sunday );
+						}).fail(function(xhr){
+							console.log('Failure');
+							alert("Request Failed  , Check your entry");
+						})
+					});
+					
+			</script>
 
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
