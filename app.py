@@ -4,6 +4,19 @@ import flask , os
 import pandas as pd
 from sklearn.externals import joblib
 import datetime
+import numpy as np
+
+# Neural Network Load
+
+from keras.models import model_from_json
+json_file = open('models/model.json', 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+loaded_model = model_from_json(loaded_model_json)
+# load weights into new model
+loaded_model.load_weights("models/model.h5")
+print("Loaded model from disk")
+
 
 datetime.datetime.today()
 date = datetime.datetime.today().weekday()
@@ -105,7 +118,10 @@ def recommend():
 @app.route('/load_model',methods=['GET','POST'])
 def load_model():
 	if 'user' in session:
+		count = 0
+		count += 1
 		import random
+		random.Random(count)
 		req = request.get_json()
 		algo = str(req['algo'])
 		if algo == "SVM":
@@ -187,8 +203,7 @@ def load_model():
 			}
 			res = flask.jsonify(d)
 			return res
-		elif algo == "NN":
-			clf = joblib.load('models/svc_40.pkl') 
+		elif algo == "NN": 
 			email = session['user']
 			print email
 			habit = pd.read_sql("""SELECT h_{} FROM habits WHERE email = {} """.format(date+1 , email), connection).values[0][0]
@@ -196,7 +211,8 @@ def load_model():
 			habit2 = '"' + str(habit) + '"'
 			(p,f,c,s) = pd.read_sql("""SELECT protein , fat , calories , sodium FROM recepies WHERE title = {}""".format(habit2), connection).values[0]
 			print p,f,c,s
-			output = clf.predict([[p,f,c,s]])
+			X = np.array([p,f,c,s])
+			output = loaded_model.predict_classes(X.reshape(1,4), verbose=0)
 			print output
 			prediction = pd.read_sql("""SELECT title FROM recepies WHERE types = {} """.format(output[0]), connection).values[0]
 			op = random.choice (prediction)
@@ -239,8 +255,9 @@ def habits():
 	else:
 		return "<h1 style='text-align:center'>Sorry Your Session has expired !</h1>"
 connection.commit()
-port = int(os.environ.get('PORT', 5000))
-app.run(host='0.0.0.0' , port = port)
+if __name__ == "__main__":
+	port = int(os.environ.get('PORT', 5000))
+	app.run(host='0.0.0.0' , port = port)
 
 
 
