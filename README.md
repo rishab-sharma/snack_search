@@ -25,16 +25,15 @@ I have used Flask Microframework to serve my app.
 
 ## Support Vector Machine - Output
 
-![SVM](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.39%20PM.png)
+<img src="https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.39%20PM.png" height = "400">
 
 ## Random Forest - Output
 
-![RF](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.46%20PM.png)
+<img src="https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.46%20PM.png" height = "400">
 
 ## Decision Tree - Output
-
-![DT](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.54%20PM.png)
+<img src="https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.54%20PM.png" height ="400">
 
 ## Neural Network - Output
 
-![NN](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.58%20PM.png)
+<img src="https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.58%20PM.png" height ="400">
