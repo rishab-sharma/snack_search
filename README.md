@@ -17,7 +17,7 @@ I have used Flask Microframework to serve my app.
 
 ## Enter your Habits
 
-![Details](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.54.56%20PM.png)
+<img src="https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.54.56%20PM.png" height="100">
 
 ## Multi - Algorithm Recommender
 
