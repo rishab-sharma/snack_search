@@ -54,5 +54,12 @@ I have used Flask Microframework to serve my app.
 4. Flask
 5. Python Numpy, OS , Sys , Matplotlib
 
+### Database 
+SQLite3
+
+### Dataset
+
+[Kaggle](https://www.kaggle.com/hugodarwood/epirecipes)
+
 ## Thank You , [Fork](https://github.com/rishab-sharma/snack_search/blob/master/README.md#fork-destination-box) If you Find it Useful
 
