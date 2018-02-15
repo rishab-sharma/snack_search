@@ -37,3 +37,22 @@ I have used Flask Microframework to serve my app.
 ## Neural Network - Output
 
 <img src="https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.58%20PM.png" height ="400">
+
+## Tech Stack 
+
+### Languages
+1. Python
+2. HTML
+3. CSS
+4. Javascript
+5. Jquery
+
+### Libraries
+1. ScikitLearn
+2. Keras
+3. Tensorflow
+4. Flask
+5. Python Numpy, OS , Sys , Matplotlib
+
+## Thank You , Fork If you Find it Useful
+
