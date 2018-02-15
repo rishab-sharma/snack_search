@@ -15,5 +15,26 @@ I have used Flask Microframework to serve my app.
 
 ![home](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.53.50%20PM.png)
 
+## Enter your Habits
 
+![Details](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.54.56%20PM.png)
 
+## Multi - Algorithm Recommender
+
+![Recommmender](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.22%20PM.png)
+
+## Support Vector Machine - Output
+
+![SVM](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.39%20PM.png)
+
+## Random Forest - Output
+
+![RF](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.46%20PM.png)
+
+## Decision Tree - Output
+
+![DT](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.54%20PM.png)
+
+## Neural Network - Output
+
+![NN](https://github.com/rishab-sharma/snack_search/blob/master/images/Screen%20Shot%202018-02-15%20at%201.55.58%20PM.png)
