@@ -1,7 +1,7 @@
 # Snack Search
 ## Author: Rishab Sharma - MAIT, GGSIP University ,New Delhi - 110086
 
-## A machine Learning Driven app for snack suggestion
+## A machine Learning Driven app for snack suggestions
 
 One of the main uses of computers is to help us solve problems quickly and effectively. And a problem we often run into is figuring out what to eat, or what to make. This problem is solvable using data and recommendation engines.
 
