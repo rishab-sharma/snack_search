@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.externals import joblib
 import datetime
 import numpy as np
-
+import tqdm
 # Neural Network Load
 
 from keras.models import model_from_json
